@@ -1,1 +1,4 @@
-.idea/ target/ algs4.iml
+.idea/
+target/
+*.iml
+

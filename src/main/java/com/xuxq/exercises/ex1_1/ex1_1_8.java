@@ -5,5 +5,6 @@ public class ex1_1_8 {
         System.out.println('b'); // 'b'
         System.out.println('b' + 'c'); // 197
         System.out.println((char)('a' + 4)); // 'e'
+        System.out.println('a' + 4); // 101
     }
 }
