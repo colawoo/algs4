@@ -8,8 +8,9 @@ package com.xuxq.exercises.ex1_1;
  *          2.重复计算。
  *
  *     递归优化：
- *          1.使用尾递归，避免栈溢出。
- *          2.使用缓存存储已计算过的结果，避免重复计算。
+ *          1.使用尾递归，避免栈溢出。(需要编译器对尾递归进行优化，只存储最后一次调用的栈帧)
+ *          2.使用缓存存储已计算过的结果，避免重复计算。（仍然存在调用栈过深的问题）
+ *          3.使用循环改写递归。
  */
 public class ex1_1_19 {
 
@@ -75,6 +76,25 @@ public class ex1_1_19 {
     public static long  fibonacci_tail_recursion(int num, long ret1, long ret2) {
         if (num == 0) return ret1;
         else return fibonacci_tail_recursion(num-1, ret2, ret1 + ret2);
+    }
+
+    /**
+     * 使用循环实现fibonacci
+     *
+     * @param num
+     * @return
+     */
+    public static long fibonacci_loop(int num) {
+        long n1 = 0;
+        long n2 = 1;
+        long t = 0;
+        while (num > 0) {
+            t = n1 + n2;
+            n1 = n2;
+            n2 = t;
+            num--;
+        }
+        return n1;
     }
 
 }
